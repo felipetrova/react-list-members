@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import * as C from '../../styles/Const';
 
 export const CardMember = styled.div`
@@ -11,17 +10,22 @@ export const CardMember = styled.div`
   overflow: scroll;
   font-family: 'robotoregular';
 
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
+  a {
+    color: ${C.WHITE};
 
-  p {
-
-    strong {
-      font-family: 'robotomedium';
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  
+    p {
+  
+      strong {
+        font-family: 'robotomedium';
+      }
     }
   }
+
 `;

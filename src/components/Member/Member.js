@@ -13,28 +13,34 @@ const Member = ({memberProps}) => {
   return (
     <>
       <Style.CardMember>
-        <GridStyle.Row>
-          <GridStyle.Col
-            mobile={12}
-          >
-            <img
-              src={avatar_url}
-              className="album-sprite"
-            />
-          </GridStyle.Col>
+        <a
+          href={`/member/${id}`}
+        >
+          <GridStyle.Row>
+            <GridStyle.Col
+              mobile={12}
+            >
+              <img
+                src={avatar_url}
+                className="album-sprite"
+                alt={`User @${login}`}
+              />
+            </GridStyle.Col>
 
-          <GridStyle.Col
-            mobile={12}
-          >
-            <p className="has-text-centered">
-              <strong>
-                login:
-              </strong>
-              {" "}
-              {login}
-            </p>
-          </GridStyle.Col>
-        </GridStyle.Row>
+            <GridStyle.Col
+              mobile={12}
+              className="no-margin"
+            >
+              <p className="has-text-centered">
+                <strong>
+                  login:
+                </strong>
+                {" "}
+                {login}
+              </p>
+            </GridStyle.Col>
+          </GridStyle.Row>
+        </a>
       </Style.CardMember>
     </>
   )
