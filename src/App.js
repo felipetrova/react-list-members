@@ -4,14 +4,16 @@ import axios from 'axios';
 
 import * as GridStyle from './styles/Grid';
 
-import LoadingComponent from "./components/Loading/Loading";
+import LoadingComponent from './components/Loading/Loading';
+import HeaderComponent from './components/Header/Header';
+import SearchComponent from './components/Search/Search'
 import MemberComponent from './components/Member/Member'
 
 const App = () => {
   const [setMembers, setMembersState] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const loadMembers = useCallback(()=> {
+  const loadMembers = useCallback(() => {
     try {
       setLoading(true);
       axios.get('https://api.github.com/orgs/facebook/public_members').then(res => {
@@ -29,12 +31,18 @@ const App = () => {
 
   useEffect(() => {
     loadMembers();
-    document.title = 'React List Facebook Members';
+    document.title = 'Lello Condomínios - List Facebook Members';
   }, []);
 
   return (
     <>
       {loading && <LoadingComponent />}
+
+      <HeaderComponent
+        title="Lello - List Members"
+      />
+
+      <SearchComponent />
 
       <div className="mt-65px">
         <GridStyle.Container>
