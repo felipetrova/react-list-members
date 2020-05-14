@@ -6,7 +6,7 @@ import LibsStyle from './styles/Libs';
 import GlobalFonts from './styles/Fonts';
 
 import './index.css';
-import App from './App';
+import App from './pages/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

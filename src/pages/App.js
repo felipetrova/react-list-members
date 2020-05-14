@@ -2,12 +2,12 @@ import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-import * as GridStyle from './styles/Grid';
+import * as GridStyle from '../styles/Grid';
 
-import LoadingComponent from './components/Loading/Loading';
-import HeaderComponent from './components/Header/Header';
-import SearchComponent from './components/Search/Search'
-import MemberComponent from './components/Member/Member'
+import LoadingComponent from '../components/Loading/Loading';
+import HeaderComponent from '../components/Header/Header';
+import SearchComponent from '../components/Search/Search'
+import MemberComponent from '../components/Member/Member'
 
 const App = () => {
   const [setMembers, setMembersState] = useState([]);
