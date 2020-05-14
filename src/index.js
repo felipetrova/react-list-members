@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import GlobalStyle from './styles/Global'
+import LibsStyle from './styles/Libs';
+import GlobalFonts from './styles/Fonts';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyle />
+    <LibsStyle />
+    <GlobalFonts />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
