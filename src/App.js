@@ -2,9 +2,11 @@ import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-import * as GridStyle from "./styles/Grid";
+import * as GridStyle from './styles/Grid';
 
-function App() {
+import Member from './components/Member/Member'
+
+const App = () => {
   const [setMembers, setMembersState] = useState([]);
 
   const loadMembers = useCallback(()=> {
@@ -30,9 +32,7 @@ function App() {
       <GridStyle.Container>
         <GridStyle.Row>
           <GridStyle.Col>
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
+            <Member />
           </GridStyle.Col>
         </GridStyle.Row>
       </GridStyle.Container>
