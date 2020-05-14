@@ -27,6 +27,10 @@ const Member = ({memberProps}) => {
             mobile={12}
           >
             <p className="has-text-centered">
+              <strong>
+                login:
+              </strong>
+              {" "}
               {login}
             </p>
           </GridStyle.Col>

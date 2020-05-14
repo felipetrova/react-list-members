@@ -4,13 +4,16 @@ import axios from 'axios';
 
 import * as GridStyle from './styles/Grid';
 
-import Member from './components/Member/Member'
+import LoadingComponent from "./components/Loading/Loading";
+import MemberComponent from './components/Member/Member'
 
 const App = () => {
   const [setMembers, setMembersState] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const loadMembers = useCallback(()=> {
     try {
+      setLoading(true);
       axios.get('https://api.github.com/orgs/facebook/public_members').then(res => {
         console.log(res.data);
         setMembersState(res.data);
@@ -20,7 +23,9 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-  })
+
+    setLoading(false);
+  });
 
   useEffect(() => {
     loadMembers();
@@ -29,24 +34,28 @@ const App = () => {
 
   return (
     <>
-      <GridStyle.Container>
-        <GridStyle.Row>
-          {setMembers && setMembers.length > 0 &&
-            setMembers.map((item, index) => (
-              <GridStyle.Col
-                key={index + 1}
-                mobile={12}
-                tablet={6}
-                desktop={4}
-              >
-                <Member
-                  memberProps={item}
-                />
-              </GridStyle.Col>
-            ))
-          }
-        </GridStyle.Row>
-      </GridStyle.Container>
+      {loading && <LoadingComponent />}
+
+      <div className="mt-65px">
+        <GridStyle.Container>
+          <GridStyle.Row>
+            {setMembers && setMembers.length > 0 &&
+              setMembers.map((item, index) => (
+                <GridStyle.Col
+                  key={index + 1}
+                  mobile={12}
+                  tablet={6}
+                  desktop={4}
+                >
+                  <MemberComponent
+                    memberProps={item}
+                  />
+                </GridStyle.Col>
+              ))
+            }
+          </GridStyle.Row>
+        </GridStyle.Container>
+      </div>
     </>
   );
 }
