@@ -11,4 +11,11 @@ export const CardMember = styled.div`
   padding: 1rem;
   overflow: scroll;
   font-family: 'robotolight';
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
 `;

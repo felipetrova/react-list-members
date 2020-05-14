@@ -3,7 +3,13 @@ import React from 'react';
 import * as GridStyle from '../../styles/Grid';
 import * as Style from './MemberStyle';
 
-const Member = () => {
+const Member = ({memberProps}) => {
+  const {
+    id,
+    login,
+    avatar_url
+  } = memberProps;
+
   return (
     <>
       <Style.CardMember>
@@ -11,14 +17,17 @@ const Member = () => {
           <GridStyle.Col
             mobile={12}
           >
-            <p>IMG</p>
+            <img
+              src={avatar_url}
+              className="album-sprite"
+            />
           </GridStyle.Col>
 
           <GridStyle.Col
             mobile={12}
           >
             <p className="has-text-centered">
-              Name
+              {login}
             </p>
           </GridStyle.Col>
         </GridStyle.Row>

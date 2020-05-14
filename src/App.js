@@ -31,13 +31,20 @@ const App = () => {
     <>
       <GridStyle.Container>
         <GridStyle.Row>
-          <GridStyle.Col
-            mobile={12}
-            tablet={6}
-            desktop={4}
-          >
-            <Member />
-          </GridStyle.Col>
+          {setMembers && setMembers.length > 0 &&
+            setMembers.map((item, index) => (
+              <GridStyle.Col
+                key={index + 1}
+                mobile={12}
+                tablet={6}
+                desktop={4}
+              >
+                <Member
+                  memberProps={item}
+                />
+              </GridStyle.Col>
+            ))
+          }
         </GridStyle.Row>
       </GridStyle.Container>
     </>
