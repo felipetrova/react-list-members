@@ -31,7 +31,11 @@ const App = () => {
     <>
       <GridStyle.Container>
         <GridStyle.Row>
-          <GridStyle.Col>
+          <GridStyle.Col
+            mobile={12}
+            tablet={6}
+            desktop={4}
+          >
             <Member />
           </GridStyle.Col>
         </GridStyle.Row>
