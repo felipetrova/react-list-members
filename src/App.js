@@ -44,7 +44,7 @@ const App = () => {
 
       <SearchComponent />
 
-      <div className="mt-65px">
+      <div className="mt-125px">
         <GridStyle.Container>
           <GridStyle.Row>
             {setMembers && setMembers.length > 0 &&
