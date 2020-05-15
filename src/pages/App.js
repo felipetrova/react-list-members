@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 import * as GridStyle from '../styles/Grid';
