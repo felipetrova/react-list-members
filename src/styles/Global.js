@@ -12,7 +12,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    /* background: ${C.MEDIUM_GREY}; */
     line-height: 1.3;
     font-size: 100%;
     font-family: "robotoregular", sans-serif;
@@ -38,11 +37,24 @@ const GlobalStyles = createGlobalStyle`
     padding: 20px 0;
   }
 
-  input:not([type=radio]),
+  /* input:not([type=radio]),
   select,
   textarea {
     appearance: none;
     border: none;
+  } */
+
+  input {
+    width: 100%;
+    position: fixed;
+    top: 45px;
+    left: 0;
+    z-index: 9;
+
+    height: 50px;
+    background: #EEEEEE;
+    padding: 10px;
+    border: 1px solid ${C.LIGHT_GREY};
   }
 
   hr{

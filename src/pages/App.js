@@ -5,8 +5,7 @@ import * as GridStyle from '../styles/Grid';
 
 import LoadingComponent from '../components/Loading/Loading';
 import HeaderComponent from '../components/Header/Header';
-import SearchComponent from '../components/Search/Search'
-import MemberComponent from '../components/Member/Member'
+import MemberComponent from '../components/Member/Member';
 
 const App = () => {
   const [setMembers, setMembersState] = useState([]);
@@ -16,7 +15,6 @@ const App = () => {
     try {
       setLoading(true);
       axios.get('https://api.github.com/orgs/facebook/public_members').then(res => {
-        console.log(res.data);
         setMembersState(res.data);
       }).catch(err => {
         console.log(err);
@@ -27,6 +25,28 @@ const App = () => {
 
     setLoading(false);
   });
+
+  async function resultSearch(e) {
+    const term = e.target.value;
+    setMembers.filter((data) => {
+      if(term === undefined) {
+        return data;
+      }
+      else if(data.login.includes(term)) {
+        return data;
+      }
+    }).map(data => {
+      return (
+        <div>
+          <ul>
+            <li>
+              <span>{data.login}</span>
+            </li>
+          </ul>
+        </div>
+      )
+    });
+  }
 
   useEffect(() => {
     loadMembers();
@@ -41,7 +61,12 @@ const App = () => {
         title="Lello - List Members"
       />
 
-      <SearchComponent />
+      <input
+        className="flex"
+        type="text"
+        placeholder="Search member"
+        onChange={(e) => resultSearch(e)}
+      />
 
       <div className="mt-125px">
         <GridStyle.Container>
