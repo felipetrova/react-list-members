@@ -20,6 +20,7 @@ export const CardMember = styled.div`
   }
 
   p {
+    cursor: pointer;
 
     strong {
       font-family: 'robotomedium';

@@ -14,7 +14,7 @@ export const Header = styled.header`
               0 0.125rem 0.1875rem rgba(4,9,20,0.03);
 
   .title {
-    color: ${C.RED};
+    color: ${C.MEDIUM_GREY};
   }
 
   p {
