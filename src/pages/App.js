@@ -17,10 +17,10 @@ const App = () => {
       axios.get('https://api.github.com/orgs/facebook/public_members').then(res => {
         setMembersState(res.data);
       }).catch(err => {
-        console.log(err);
+        console.error(err);
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     setLoading(false);
@@ -28,24 +28,16 @@ const App = () => {
 
   async function resultSearch(e) {
     const term = e.target.value;
-    setMembers.filter((data) => {
-      if(term === undefined) {
-        return data;
-      }
-      else if(data.login.includes(term)) {
-        return data;
-      }
-    }).map(data => {
-      return (
-        <div>
-          <ul>
-            <li>
-              <span>{data.login}</span>
-            </li>
-          </ul>
-        </div>
-      )
-    });
+    let users = setMembers;
+
+    if (term === '') {
+      loadMembers();
+    } else {
+      users = users.filter(function(user) {
+        return user.login.toLowerCase().search(term) !== -1;
+      });
+      setMembersState(users);
+    }
   }
 
   useEffect(() => {

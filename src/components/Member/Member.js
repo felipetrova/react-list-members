@@ -22,13 +22,12 @@ const Member = ({memberProps}) => {
     try {
       setLoading(true);
       axios.get(`https://api.github.com/users/${login}`).then(res => {
-        console.log(res.data);
         setMemberState(res.data);
       }).catch(err => {
-        console.log(err);
+        console.error(err);
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     setLoading(false);
@@ -42,6 +41,7 @@ const Member = ({memberProps}) => {
         <GridStyle.Row>
           <GridStyle.Col
             mobile={12}
+            className="w-100"
           >
             <img
               src={avatar_url}
@@ -69,7 +69,7 @@ const Member = ({memberProps}) => {
                 <GridStyle.Col
                   mobile={12}
                   tablet={6}
-                  desktop={3}
+                  desktop={6}
                   className="flex align-itcenter cont-start mb-10px"
                 >
                   <img src="icons/name.svg" alt="Member Name" />
@@ -81,7 +81,7 @@ const Member = ({memberProps}) => {
                 <GridStyle.Col
                   mobile={12}
                   tablet={6}
-                  desktop={3}
+                  desktop={6}
                   className="flex align-itcenter cont-start mb-10px"
                 >
                   <img src="icons/repo.svg" alt="Member Repo" />
@@ -95,7 +95,7 @@ const Member = ({memberProps}) => {
                 <GridStyle.Col
                   mobile={12}
                   tablet={6}
-                  desktop={3}
+                  desktop={6}
                   className="flex align-itcenter cont-start mb-10px"
                 >
                   <img src="icons/followers.svg" alt="Member Followers" />
@@ -107,7 +107,7 @@ const Member = ({memberProps}) => {
                 <GridStyle.Col
                   mobile={12}
                   tablet={6}
-                  desktop={3}
+                  desktop={6}
                   className="flex align-itcenter cont-start mb-10px"
                 >
                   <img src="icons/created_at.svg" alt="Member Created at" />

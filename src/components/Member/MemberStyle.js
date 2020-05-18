@@ -10,9 +10,11 @@ export const CardMember = styled.div`
   padding: 1rem;
   overflow: scroll;
   font-family: 'robotoregular';
+  height: 350px;
 
   img {
-    max-width: 100%;
+    max-width: 250px;
+    width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -29,8 +31,9 @@ export const CardMember = styled.div`
 
   .dataMember {
     display: none;
+    visibility: hidden;
     outline: none;
-    transition: background-color 0.6s ease;
+    transition: display .2s linear, visibility .2s linear;
 
     p {
       color: ${C.WHITE};
@@ -48,6 +51,7 @@ export const CardMember = styled.div`
 
     &.show {
       display: block;
+      visibility: visible;
     }
   }
 `;
